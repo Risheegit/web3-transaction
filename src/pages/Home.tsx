@@ -58,10 +58,10 @@ const Home = () => {
 		},
 	]
 	return (
-		<div className="w-full flex flex-wrap items-center  bg-black justify-around gap-16 px-28 ">
+		<div className="w-full flex flex-col flex-wrap items-center  bg-black justify-around gap-16 px-28 ">
 			{transactions.map(({ from, to, amount }) => {
 				return (
-					<div className="flex flex-col  items-center  h-80 w-96 justify-center rounded-lg bg-white bg-opacity-10 hover:scale-105 hover:z-30 hover:cursor-pointer hover:border-green hover:border-2">
+					<div className="flex flex-col  items-center  h-80 w-2/5 justify-center rounded-lg bg-white bg-opacity-10 hover:scale-105 hover:z-30 hover:cursor-pointer hover:border-green hover:border-2">
 						<div
 						// className={`${
 						// 	from == userName

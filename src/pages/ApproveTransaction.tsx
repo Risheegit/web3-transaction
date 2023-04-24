@@ -1,61 +1,73 @@
 // import React from "react"
-//import { useState } from "react"
+import { useState } from "react"
 
 const ApproveTransaction = () => {
-	const userName = "Rebhav"
-	//const [status, setStatus] = useState(false)
+	// const userName = "Rebhav"
+	const [status, setStatus] = useState(false)
+	const [checked, setChecked] = useState(false)
 	//const [count, setCount] = useState(0)
 
 	const transactions = [
-		{ from: "Patil", amount: 100, to: "Rebhav", approved: true },
-		{ from: "Rebhav", amount: 150, to: "Patil", approved: false },
+		{ from: "AAAA....BBBB", amount: 100, to: "Rebhav", checked: "false" },
+		{ from: "BBBB....AAAA", amount: 150, to: "Patil", checked: "false" },
 	]
 
-	// const handleClick = () => {
-	// 	setStatus(true)
-	// }
+	const approveTransaction = () => {
+		setStatus(true)
+		setChecked(true)
+		console.log("Status of transaction is", status)
+		console.log("checked")
+	}
+	const disapproveTransaction = () => {
+		setStatus(false)
+		setChecked(true)
+		console.log("Status of transaction is", status)
+		console.log("checked")
+	}
+
+	//Take care of checked in the backend
 	return (
-		<div className=" w-full flex flex-col justify-center items-center align-middle">
-			{transactions.map(({ from, to, amount }) => {
-				return (
-					<>
-						<div className="flex flex-col m-4 items-center w-full justify-center rounded-lg">
-							<div
-								className={`${
-									from == userName
-										? "bg-green-400 w-2/5 flex flex-col items-center justify-center border-2 rounded-lg border-black"
-										: "bg-gray-200 w-2/5 flex flex-col items-center justify-center border-2 rounded-lg border-black"
-								}`}
-							>
-								<h1 className="text-1xl font-normal">
-									From: {from}
-								</h1>
-								<h1 className="text-1xl font-normal">
-									Amount: {amount}
-								</h1>
-								<h1 className="text-1xl font-normal">
-									To: {to}
-								</h1>
-								<i
-									className={`${
-										from == userName
-											? "fa-light fa-arrow-up-right"
-											: "fa-light fa-arrow-down-left"
-									}`}
-								></i>
-								{userName == from && (
-									<i className="fa-regular fa-arrow-up-right"></i>
-								)}
+		<div className="absolute top-0 w-full bg-black h-screen flex flex-col justify-center items-center align-middle">
+			<div className="relative flex flex-col w-2/5 rounded-lg items-center justify-center bg-white bg-opacity-5">
+				{transactions.map(({ from, amount }) => {
+					return (
+						<>
+							{
 								<div>
-									<button className="rounded-sm bg-cyan-200">
-										Approve
-									</button>
+									<div className="relative flex mt-10 items-start justify-start right-0">
+										<h1 className="text-white">
+											from : {from}
+										</h1>
+									</div>
+									<div className="flex items-center mb-10 border-2 h-16 border-green rounded-lg w-96 justify-between ">
+										<div>
+											<img
+												src="Wallet.png"
+												alt="noy found"
+											/>
+										</div>
+										<div className="text-white text-xl">
+											<h1>$ {amount}</h1>
+										</div>
+										<div>
+											<button
+												onClick={approveTransaction}
+											>
+												<img src="tick_square_.png" />
+											</button>
+											<button
+												onClick={disapproveTransaction}
+											>
+												<img src="icon_minus_circle_.png" />
+											</button>
+										</div>
+									</div>
 								</div>
-							</div>
-						</div>
-					</>
-				)
-			})}
+							}
+						</>
+					)
+				})}
+			</div>
 		</div>
 	)
 }

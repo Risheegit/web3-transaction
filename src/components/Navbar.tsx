@@ -7,7 +7,10 @@ const Navbar = () => {
 		{ name: "create transaction", link: "/create" },
 	]
 	return (
-		<div className="bg-black w-full z-10 relative">
+		<div className="bg-black w-full z-10 relative flex justify-between ">
+			<div className="py-12 px-16 gap-4 cursor-pointer text-white text-2xl font-medium">
+				<Link to={"/"}>web3pay</Link>
+			</div>
 			<ul className=" links flex justify-end py-12 px-32 gap-4 ">
 				{links.map(({ name, link }) => {
 					return (
